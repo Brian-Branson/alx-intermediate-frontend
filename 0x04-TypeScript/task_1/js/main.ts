@@ -12,16 +12,6 @@ interface Directors extends Teacher {
 }
 
 
-const teacher3: Teacher = {
-  firstName: 'John',
-  fullTimeEmployee: false,
-  lastName: 'black',
-  location: 'Nairobi',
-  contract: false,
-};
-
-
-
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
@@ -51,3 +41,50 @@ class StudentClass implements StudentInterface {
     return this.firstName;
   }
 }
+interface DirectorInterface {
+  workFromHome: () => string;
+  getCoffeeBreak: () => string;
+  workTeacherTask: () => string;
+}
+
+interface TeacherInterface {
+  workFromHome: () => string;
+  getCoffeeBreak: () => string;
+  workTeacherTask: () => string;
+}
+
+class Director implements DirectorInterface {
+  workFromHome(): string {
+    return 'Working from home';
+  }
+
+  getCoffeeBreak(): string {
+    return 'Getting a coffee break';
+  }
+
+  workTeacherTask(): string {
+    return 'Getting to director tasks';
+  }
+}
+
+class Teacher implements TeacherInterface {
+  workFromHome(): string {
+    return 'cannot work from home';
+  }
+
+  getCoffeeBreak(): string {
+    return 'cannot have a break';
+  }
+
+  workTeacherTask(): string {
+    return 'Getting to work';
+  }
+}
+function createEmployee(salary: number | string): Teacher | Director {
+  if (typeof salary === 'number' && salary < 500) {
+    return new Teacher();
+  } else {
+    return new Director();
+  }
+}
+console.log(createEmployee(200));
