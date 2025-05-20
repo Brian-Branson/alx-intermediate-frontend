@@ -19,7 +19,7 @@ interface printTeacherFunction {
 const printTeacher: printTeacherFunction = (firstName, lastName) => {
   return `${firstName.charAt(0)}. ${lastName}`;
 };
-console.log(printTeacher('John', 'Doe'));
+
 
 interface StudentConstructor {
   new (firstName: string, lastName: string): StudentInterface;
@@ -96,5 +96,14 @@ function executeWork(employee: Director | Teacher): string {
     return employee.workTeacherTask(); 
   } else if (employee instanceof Teacher) {
     return employee.workTeacherTask(); 
+  }
+}
+type Subjects = 'Math' | 'History';
+
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else {
+    return 'Teaching History';
   }
 }
