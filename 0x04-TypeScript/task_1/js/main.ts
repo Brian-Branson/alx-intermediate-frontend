@@ -40,9 +40,4 @@ class StudentClass implements StudentInterface {
   displayName(): string {
     return this.firstName;
   }
-<<<<<<< HEAD
 }
-=======
-}
-
->>>>>>> 086c00a3d05c3bab3b50dedb5626f2babde92b5f
