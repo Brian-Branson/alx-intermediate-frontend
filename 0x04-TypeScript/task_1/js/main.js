@@ -1,14 +1,7 @@
-var teacher3 = {
-    firstName: 'John',
-    fullTimeEmployee: false,
-    lastName: 'black',
-    location: 'Nairobi',
-    contract: false,
-};
 var printTeacher = function (firstName, lastName) {
     return "".concat(firstName.charAt(0), ". ").concat(lastName);
 };
-console.log(printTeacher('John', 'Doe'));
+
 var StudentClass = /** @class */ (function () {
     function StudentClass(firstName, lastName) {
         this.firstName = firstName;
@@ -58,5 +51,15 @@ function createEmployee(salary) {
         return new Director();
     }
 }
+function isDirector(employee) {
+    return employee instanceof Director;
+}
+function executeWork(employee) {
+    if (isDirector(employee)) {
+        console.log('Director');
+    }
+    else {
+        console.log('Teacher');
+    }
+}
 
-console.log(createEmployee(200));
